@@ -15,21 +15,21 @@ sl.addEventListener("click", searchLocation);
 
 
 function searchCity() {
-    let cityname = document.querySelector("input").value;
+    let cityname = document.querySelector("input").value;    // get input value
     if (cityname) {
         // get city data from url_1 - ( https://openweathermap.org/api/geocoding-api )
         const url_1 = `https://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=1&appid=${API_key}`;
         fetch(url_1)
             .then(response => response.json() )
             .then((data) => {
-                if (data.length === 1) {
+                if (data.length == 1) {
                     citylocationData(data);
                 }
                 else {
                     alert("Invalid city name. Please try again.");
                 }
             })
-            .catch( (error) => {
+            .catch((error) => {
                 alert("Failed to fetch city data!");
             });
     }
@@ -88,8 +88,8 @@ const citylocationData = (data) => {
 // Dropdown Menu Function
 const dropdownMenu = (name) => {
     dm.innerHTML="";    // clear previous search data
-    let lsl = localStorage.length;        // lsl = LocalStorage Length
-    // Check city exists or not exist in localStorage.
+    let lsl = localStorage.length;        // lsl (LocalStorage Length)
+    // Check city exists or not in localStorage.
     let tf = false;
     for (let i = 0; i < lsl; i++) {
         let cityexists = JSON.parse( localStorage.getItem(i + 1) );
@@ -99,20 +99,20 @@ const dropdownMenu = (name) => {
         }      
     }
     if (!tf) {
-        localStorage.setItem( lsl + 1, JSON.stringify(name) );
+        localStorage.setItem( lsl + 1, JSON.stringify(name) );    // set search city to LocalStorage
     }
     // Display the stored city in dropdown menu.
     for (let i = lsl; i >= 0; i--) {
-        let storedname = JSON.parse( localStorage.getItem(i + 1) );
+        let storedname = JSON.parse( localStorage.getItem(i + 1) );    // get search city to LocalStorage
         let btn = document.createElement("div");
         btn.textContent = storedname;
-        dm.appendChild(btn);
+        dm.appendChild(btn);    // add search city in dropdown menu
         btn.onclick = () => {
             document.querySelector("input").value = storedname;    // Set input value
-            searchCity();
+            searchCity();    // call 'Search City Function'
         };
     }
-    dm.style.cssText = `background-color: rgba(0, 0, 0, 0.5); cursor: pointer;`;
+    dm.style.cssText = `background-color: rgba(0, 0, 0, 0.5);`;
 }
 
 
@@ -147,7 +147,7 @@ const weatherData = (country, lat, lon, name) => {
 const weatherToday = (name, country, dtihmw) => {        // dtihmw (date, temp, icons, humidity max/min, wind)
     s1.innerHTML = `
                     <div id="w_info1" class="flex flex-col text-center sm:items-start">
-                        <p id="temp"> ${(dtihmw.main.temp - 273.15).toFixed(2)}°C </p>
+                        <p id="temp"> ${(dtihmw.main.temp - 273.15).toFixed(2)}° C </p>
                         <p id="city"> ${name}, ${country} </p>
                         <p id="date"> ${dtihmw.dt_txt.split(" ")[0]} </p>
                     </div>
@@ -155,12 +155,11 @@ const weatherToday = (name, country, dtihmw) => {        // dtihmw (date, temp, 
                         <img src="https://openweathermap.org/img/wn/${dtihmw.weather[0].icon}@2x.png" alt="weather_icons">
                         <figcaption> ${dtihmw.weather[0].description} </figcaption>
                     </div>
-            
                     <div id="w_info2" class="flex flex-col sm:flex-row sm:justify-between">
-                    <p> Humidity: ${dtihmw.main.humidity}% </p>
-                        <p> Max: ${(dtihmw.main.temp_max - 273.15).toFixed(2)}°C </p>
-                        <p> Min: ${(dtihmw.main.temp_min - 273.15).toFixed(2)}°C </p>
-                        <p> Wind: ${dtihmw.wind.speed} m/s </p>
+                        <p> <i class="fa-solid fa-droplet"></i> Humidity: ${dtihmw.main.humidity} % </p>
+                        <p> <i class="fa-solid fa-temperature-high"></i> Max: ${(dtihmw.main.temp_max - 273.15).toFixed(2)}° C </p>
+                        <p> <i class="fa-solid fa-temperature-low"></i> Min: ${(dtihmw.main.temp_min - 273.15).toFixed(2)}° C </p>
+                        <p> <i class="fa-solid fa-wind"></i> Wind: ${dtihmw.wind.speed} m/s </p>
                     </div>
                 `;
 }
@@ -179,9 +178,9 @@ const weatherForecast = (dtihw) => {        // dtihw (date, temp, icons, humidit
     // weather forecast card data
     wc.innerHTML = `
                     <p> ${dtihw.dt_txt.split(" ")[0]} </p>
-                    <p class="temp"> ${(dtihw.main.temp - 273.15).toFixed(2)}°C </p>
+                    <p class="temp"> ${(dtihw.main.temp - 273.15).toFixed(2)}° C </p>
                     <img src="https://openweathermap.org/img/wn/${dtihw.weather[0].icon}@2x.png" alt="weather_icon">
-                    <p> Humidity: ${dtihw.main.humidity}% </p>
+                    <p> Humidity: ${dtihw.main.humidity} % </p>
                     <p> Wind: ${dtihw.wind.speed} m/s </p>
                 `;
     fc.appendChild(wc);
