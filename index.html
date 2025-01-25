@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,8 +26,8 @@
         </div>
     </header>
 
-    <!-- Section1: Weather Today Section -->
-    <section id="s1" class="flex flex-wrap flex-col sm:flex-row sm:justify-between">
+    <!-- Section 1: Weather Today Section -->
+    <section id="s1" class="flex flex-col flex-wrap sm:flex-row sm:justify-between">
         <!-- weather - temp, city/country, date -->
         <div id="w_info1" class="flex flex-col text-center sm:items-start">
             <p id="temp"> 00.00° C </p>
@@ -40,17 +41,16 @@
         </div>
         <!-- weather - humidity, max, min, wind -->
         <div id="w_info2" class="flex flex-col sm:flex-row sm:justify-between">
-            <p> Humidity: 00% </p>
-            <p> Max: 00° C </p>
-            <p> Min: 00° C </p>
-            <p> Wind: 00 m/s </p>
+            <p> <i class="fa-solid fa-droplet"></i> Humidity: 00 % </p>
+            <p> <i class="fa-solid fa-temperature-high"></i> Max: 00° C </p>
+            <p> <i class="fa-solid fa-temperature-low"></i> Min: 00° C </p>
+            <p> <i class="fa-solid fa-wind"></i> Wind: 00 m/s </p>
         </div>
     </section>
-
-    <!-- Section2: Weather Forecast Section -->
+    <!-- Section 2: Weather Forecast Section -->
     <section id="s2">
         <h3 class="text-2xl" > 4-day forecast </h3>
-        <div id="forecast" class=" flex flex-col gap-4 :flex-row lg:grid grid-cols-4 divide-x">
+        <div id="forecast" class=" flex flex-col gap-4 sm:flex-row sm:grid grid-cols-4 divide-x">
             <!-- weather forecast cards -->
         </div>
     </section>
