@@ -1,12 +1,17 @@
 /* ---------------------------------------------------------------------------------------------------- General CSS Style */
 
-
 * {
     border: none;
     margin: 0;
     padding: 0;
     outline: none;
-    /* outline: 1px solid red; */
+}
+
+/* ------------------ */
+
+body {
+    background-color: lightskyblue;
+    font-family: "Times New Roman", Times, serif;
 }
 
 :root {
@@ -15,14 +20,7 @@
     --a-color: rgba(0, 255, 255, 1);
 }
 
-
-body {
-    background-color: lightskyblue;
-}
-
-
 /* ------------------------------------------------------------------------------------------------------- Header Section */
-
 
 header {
     background-color: var(--b-color);
@@ -60,7 +58,7 @@ header #search_box1 #search_box2 input {    /* search city input */
 
 header #search_box1 #search_box2 #dropdown-menu {    /* search city dropdown menu */
     position: absolute;
-    color: white;
+    color: var(--w-color);
     cursor: pointer;
     display: none;
     padding: 5px;
@@ -89,9 +87,7 @@ header #search_box1 #search-location:hover {
     color: var(--a-color);
 }
 
-
 /* ------------------------------------------------------------------------------------- Section 1: Weather Today Section */
-
 
 #s1 {
     background-color: rgba(255, 255, 255, 0.5);
@@ -114,10 +110,6 @@ header #search_box1 #search-location:hover {
     font-size: 20px;
 }
 
-#s1 #w_info1 #date {
-    font-style: italic;
-}
-
 /* -------------------------------------------------------------------- */
 
 #s1 #w_icons {
@@ -129,19 +121,25 @@ header #search_box1 #search-location:hover {
     margin: auto;
 }
 
+#s1 #w_icons figcaption {
+    font-size: 20px;
+    font-style: italic;
+}
+
 /* -------------------------------------------------------------------- */
 
 #s1 #w_info2 {
-    background-color: rgba(0, 0, 0);
+    background-color: var(--b-color);
     color: var(--w-color);
     padding: 20px;
     width: 100%;
-
 }
 
+#s1 #w_info2 i {
+    color: var(--a-color);
+}
 
 /* ---------------------------------------------------------------------------------- Section 2: Weather Forecast Section */
-
 
 #s2 {
     background-color: rgba(255, 255, 255, 0.5);
@@ -162,16 +160,16 @@ header #search_box1 #search-location:hover {
 }
 
 #s2 #forecast p {
-    color: white;
+    color: var(--w-color);
     text-align: center;
 }
 
 #s2 #forecast .temp {
     color: var(--a-color);
 }
+
 #s2 #forecast img {
     margin: auto;
 }
-
 
 /* ---------------------------------------------------------------------------------------------------------------------- */
