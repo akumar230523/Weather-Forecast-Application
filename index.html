@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/WeatherForecast.png" type="image/png">
+    <title> Weather Forecast </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer ></script>
+    <script src="https://cdn.tailwindcss.com"></script>                   <!-- Tailwind CSS -->
+    <script src="https://kit.fontawesome.com/b9167a9971.js" crossorigin="anonymous"></script>      <!-- Font Awesome -->
+</head>
+
+<body>
+
+    <!-- ------------------------------------------------------------------------------- HEADER -->
+    <header class="flex flex-col items-center sm:flex-row sm:justify-between">
+        <h1 class="text-4xl" > Weather Dashboard </h1>
+        <div id="search" class="flex gap-4">
+            <div id="search-input">
+                <input type="text" placeholder="Search..">
+                <div id="dropdown-menu"> </div>
+                <button id="search-city"> <i class="fa fa-search fa-xl"></i> </button>
+            </div>
+            <button id="search-location"> <i class="fa-solid fa-location-dot fa-2xl"></i> </button>
+        </div>
+    </header>
+
+    <!-- --------------------------------------------------------------------------------- MAIN -->
+    <main>
+
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Section 1: Today Weather -->
+        <section id="s1" class="flex flex-col flex-wrap sm:flex-row sm:justify-between">
+            <!-- weather - temp, city/country, date -->
+            <div id="w_info1" class="flex flex-col text-center sm:items-start">
+                <p id="temp"> 00.00° C </p>
+                <p id="city"> City, Country </p>
+                <p id="date"> yyyy / mm / dd </p>
+            </div>
+            <!-- weather icons -->
+            <div id="w_icons">
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather_icons">
+                <figcaption> weather Description </figcaption>
+            </div>
+            <!-- weather - humidity, max, min, wind -->
+            <div id="w_info2" class="flex flex-col sm:flex-row sm:justify-between">
+                <p> <i class="fa-solid fa-droplet"></i> Humidity: 00 % </p>
+                <p> <i class="fa-solid fa-temperature-high"></i> Max: 00° C </p>
+                <p> <i class="fa-solid fa-temperature-low"></i> Min: 00° C </p>
+                <p> <i class="fa-solid fa-wind"></i> Wind: 00 m/s </p>
+            </div>
+        </section>
+
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  Section 2: Weather Forecast -->
+        <section id="s2">
+            <h3 class="text-2xl" > 4 </span> - Day Forecast </h3>
+            <div id="forecast" class="flex flex-col gap-4 sm:flex-row sm:grid grid-cols-4 divide-x">
+                <!-- weather forecast cards -->
+            </div>
+        </section>
+
+    </main>
+    
+</body>
+
+</html>
+
+
